@@ -48,6 +48,9 @@ export default function Home({ cart, setCart }) {
 
   const filterByCategory = (product, catId) => {
     if (catId === 'all') return true;
+    if (catId === 'ليد' ) {
+      return product.category === 'ليد' || product.category === 'عدسات';
+    }
     if (catId === 'كماليات') {
       return product.category === 'كماليات' || product.category === 'اكسسورات';
     }
@@ -102,7 +105,7 @@ export default function Home({ cart, setCart }) {
           placeholder={isAr ? 'ابحث عن أي منتج...' : 'Search for any product...'}
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
-          className="w-full md:w-1/2 bg-gray-800 border border-gray-800 rounded-xl px-4 py-3 text-black focus:outline-none focus:border-amber-500 transition"
+          className="w-full md:w-1/2 bg-gray-800 border border-gray-800 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-amber-500 transition"
         />
         <div className="flex items-center gap-2 overflow-x-auto w-full md:w-auto pb-2 md:pb-0">
           {categories.map((cat) => (
